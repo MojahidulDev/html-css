@@ -1,0 +1,241 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        <p class="subtitle">Please complete the form below to enroll in the program.</p>
+
+        <form>
+            <div class="field">
+                <label for="firstname">First Name</label>
+                <input id="firstname" name="firstname" type="text" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="field">
+                <label for="lastname">Last Name</label>
+                <input id="lastname" name="lastname" type="text" placeholder="Enter your last name" required>
+            </div>
+
+            <div class="field">
+                <label for="dob">Date of Birth</label>
+                <input id="dob" name="dob" type="date" required>
+            </div>
+
+            <div class="field">
+                <label for="studentid">Student ID</label>
+                <input id="studentid" name="studentid" type="text" placeholder="e.g. STU-2025-101" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1234567890" required>
+            </div>
+
+            <div class="field full-width">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="gender" value="male"> Male</label>
+                    <label class="radio-item"><input type="radio" name="gender" value="female"> Female</label>
+                    <label class="radio-item"><input type="radio" name="gender" value="other"> Other</label>
+                    <label class="radio-item"><input type="radio" name="gender" value="prefer-not-to-say"> Prefer not to say</label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                    <option value="">Select a course</option>
+                    <option>Computer Science</option>
+                    <option>Business Administration</option>
+                    <option>Engineering</option>
+                    <option>Medicine</option>
+                    <option>Arts & Design</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="year">Academic Year</label>
+                <select id="year" name="year" required>
+                    <option value="">Select year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                </select>
+            </div>
+
+            <div class="field full-width">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your complete address"></textarea>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+<!-- style.css -->
+
+        :root {
+            --bg: #f4f7fb;
+            --panel: #ffffff;
+            --primary: #1f6feb;
+            --primary-dark: #154fb5;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #dfe7f1;
+            --input-bg: #f9fbff;
+            --shadow: 0 20px 40px rgba(31, 111, 235, 0.12);
+        }
+        * {                        
+            box-sizing: border-box;
+        }                          
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #edf4ff 0%, #f7f9fc 100%);
+            color: var(--text);
+        }
+
+        .container {
+            width: min(900px, 92vw);
+            background: var(--panel);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 32px;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            text-align: center;
+            font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+            color: var(--primary-dark);
+        }
+
+        .subtitle {
+            margin: 0 0 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(220px, 1fr));
+            gap: 18px 24px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        input,
+        select,
+        textarea,
+        button {
+            font: inherit;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--input-bg);
+            color: var(--text);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(31, 111, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height:60px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 8px 0;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .radio-item input {
+            width: auto;
+            margin: 0;
+        }
+
+        button {
+            grid-column: 1 / -1;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 24px rgba(31, 111, 235, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px 16px;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
